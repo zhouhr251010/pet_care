@@ -155,6 +155,19 @@ export default function Home() {
                     查看套餐
                   </a>
                 </div>
+                <label className="mt-5 grid max-w-[520px] gap-2 rounded-lg border border-white/35 bg-white/15 p-3 text-sm font-bold text-white shadow-[0_18px_36px_rgba(13,28,24,.18)] backdrop-blur-md">
+                  期待到店时间
+                  <input
+                    className="min-h-[46px] w-full rounded-lg border border-white/45 bg-white px-3 py-2.5 font-sans text-ink outline-none focus:border-yellow focus:shadow-[0_0_0_4px_rgba(239,212,107,.28)]"
+                    type="datetime-local"
+                    name="arrivalTime"
+                    form="booking-form"
+                    aria-label="期待到店时间"
+                  />
+                  <span className="text-xs font-medium text-white/78">
+                    可先选时间，再继续填写宠物信息。
+                  </span>
+                </label>
               </div>
             </div>
             <div
@@ -354,7 +367,10 @@ export default function Home() {
                 提交后门店会在 20 分钟内联系确认体型、毛量、是否打结和到店时间。
               </p>
             </div>
-            <form className="grid grid-cols-2 content-center gap-4 p-[34px] max-[560px]:grid-cols-1 max-[560px]:p-6">
+            <form
+              className="grid grid-cols-2 content-center gap-4 p-[34px] max-[560px]:grid-cols-1 max-[560px]:p-6"
+              id="booking-form"
+            >
               <label className="grid gap-[7px] text-sm font-bold text-muted">
                 姓名
                 <input
