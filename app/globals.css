@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #17211f;
+  background: #fbfaf4;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: #17211f;
+  background: #fbfaf4;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.store-carousel-track {
+  animation: store-carousel 15s infinite;
+}
+
+.store-carousel-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes store-carousel {
+  0%,
+  27% {
+    transform: translateX(0);
+  }
+
+  33%,
+  60% {
+    transform: translateX(-33.333333%);
+  }
+
+  66%,
+  93% {
+    transform: translateX(-66.666667%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .store-carousel-track {
+    animation: none;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-[min(1160px,calc(100%-36px))] max-[560px]:w-[min(1160px,calc(100%-24px))];
+  }
+
+  .btn {
+    @apply inline-flex min-h-[42px] cursor-pointer items-center justify-center gap-2 rounded-lg border border-ink px-4 py-2.5 font-bold transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_18px_rgba(23,33,31,.12)];
+  }
+
+  .btn-primary {
+    @apply bg-coral text-white;
+  }
+
+  .btn-ghost {
+    @apply bg-white text-ink;
+  }
+
+  .section-pad {
+    @apply py-24 max-[900px]:py-[74px];
+  }
+
+  .section-head {
+    @apply mb-[34px] flex items-end justify-between gap-6 max-[900px]:grid;
+  }
+
+  .section-title {
+    @apply mb-0 max-w-[560px] text-[clamp(30px,4vw,48px)] font-bold leading-[1.08] tracking-normal;
+  }
+
+  .section-copy {
+    @apply mb-0 max-w-[430px] text-muted;
+  }
+
+  .eyebrow {
+    @apply inline-flex min-h-8 items-center gap-2 rounded-full border border-white/35 bg-white/10 px-2.5 py-1 text-[13px] font-bold;
+  }
+}
