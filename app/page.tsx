@@ -88,6 +88,15 @@ const reviews = [
 ];
 
 export default function Home() {
+  const tomorrowMorning = new Date();
+  tomorrowMorning.setDate(tomorrowMorning.getDate() + 1);
+  tomorrowMorning.setHours(9, 30, 0, 0);
+  const defaultArrivalTime = `${tomorrowMorning.getFullYear()}-${String(
+    tomorrowMorning.getMonth() + 1
+  ).padStart(2, "0")}-${String(tomorrowMorning.getDate()).padStart(2, "0")}T${String(
+    tomorrowMorning.getHours()
+  ).padStart(2, "0")}:${String(tomorrowMorning.getMinutes()).padStart(2, "0")}`;
+
   return (
     <>
       <header className="sticky top-0 z-10 border-b border-ink/10 bg-paper/90 backdrop-blur-2xl">
@@ -163,6 +172,7 @@ export default function Home() {
                     name="arrivalTime"
                     form="booking-form"
                     aria-label="期待到店时间"
+                    defaultValue={defaultArrivalTime}
                   />
                   <span className="text-xs font-medium text-white/78">
                     可先选时间，再继续填写宠物信息。
